@@ -26,10 +26,19 @@ public class DungeonCreator : MonoBehaviour
         wave_function_collapse.OverrideSingleCell(0, 0, new int[] {0});
         wave_function_collapse.OverrideSingleCell(0, m_columns - 1, new int[] {1});
 
-        m_grid = wave_function_collapse.Run(true);
+        m_grid = wave_function_collapse.Run(false);
 
         m_RoomCreator = new WFC_I_GameObject(m_grid, m_sockets_data);
 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Pressed");
+            m_RoomCreator.DisplayNextRoom();
+        }
     }
 
 }

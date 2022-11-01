@@ -18,33 +18,33 @@ MonoBehaviour:
     ColorFragment:
       serializedVersion: 2
       rgba: 0
-    Room: {fileID: 0}
+    Room: {fileID: 5619920561140539586, guid: ef6d2781be794ee458189f5c328f33f8, type: 3}
     Sockets: 00000000010000000000000000000000
   - tag: Boss
     id: 1
     ColorFragment:
       serializedVersion: 2
       rgba: 0
-    Room: {fileID: 0}
+    Room: {fileID: 5496526895302942284, guid: 277441751ef80f84cbb6b78545a13a98, type: 3}
     Sockets: 00000000000000000000000001000000
   - tag: Room 01
     id: 2
     ColorFragment:
       serializedVersion: 2
       rgba: 0
-    Room: {fileID: 0}
+    Room: {fileID: 3836891245167997117, guid: fe2aca6a0dfbc3e459d8d923e0848d94, type: 3}
     Sockets: 01000000010000000100000001000000
   - tag: Room 02
     id: 3
     ColorFragment:
       serializedVersion: 2
       rgba: 0
-    Room: {fileID: 0}
+    Room: {fileID: 4460549712841117889, guid: 3796c5633eb82484e9a62397a9a32ad5, type: 3}
     Sockets: 01000000010000000100000001000000
   - tag: Room 03
     id: 4
     ColorFragment:
       serializedVersion: 2
       rgba: 0
-    Room: {fileID: 0}
+    Room: {fileID: 3121777948718726695, guid: 6df5a4e1255b961439a575c3329e04dc, type: 3}
     Sockets: 01000000010000000100000001000000

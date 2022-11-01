@@ -13,7 +13,7 @@ public class WFC_I_GameObject : WFC_Interpreter
         m_primitives = primitives;
         m_roomsList = new List<Room>();
         DisplayNextRoom();
-        DisplayNextRoom();
+
     }
     /// <summary>
     /// Instantiates game objects with the given distance
@@ -26,12 +26,12 @@ public class WFC_I_GameObject : WFC_Interpreter
             GameObject tmpRoom =  GameObject.Instantiate(m_primitives.GetFragmentByID(m_grid[0, 0].FinalSolution).Room, Vector3.zero, Quaternion.identity);
             m_roomsList.Add(tmpRoom.GetComponent<Room>());
         }
-        else
+        else if(roomToInstance < m_grid.GetLength(1))
         {
-            Vector3 offset = m_primitives.GetFragmentByID(m_grid[0, 0].FinalSolution).Room.GetComponent<Room>().m_entrance.position;
-            Vector3 origin = m_roomsList[m_roomsList.Count - 1].m_exit.position;
-            Vector3 position = origin + offset;
-            GameObject tmpRoom = GameObject.Instantiate(m_primitives.GetFragmentByID(m_grid[0, m_roomsList.Count].FinalSolution).Room, position, Quaternion.identity);
+            Vector3 offset = m_primitives.GetFragmentByID(m_grid[0, roomToInstance].FinalSolution).Room.GetComponent<Room>().m_entrance.position;
+            Vector3 origin = m_roomsList[roomToInstance - 1].m_exit.position;
+            Vector3 position = origin - offset;
+            GameObject tmpRoom = GameObject.Instantiate(m_primitives.GetFragmentByID(m_grid[0, roomToInstance].FinalSolution).Room, position, Quaternion.identity);
             m_roomsList.Add(tmpRoom.GetComponent<Room>());
         }
     }
