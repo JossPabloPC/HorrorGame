@@ -22,8 +22,9 @@ public class DungeonCreator : MonoBehaviour
         wave_function_collapse.Create_Grid();
         wave_function_collapse.Create_Rules();
 
-        wave_function_collapse.OverrideRowEntropy(0,new int[] {2,3,4});
+        wave_function_collapse.OverrideRowEntropy(0,new int[] {2,3,4,5});
         wave_function_collapse.OverrideSingleCell(0, 0, new int[] {0});
+        getRoomWithKey(6);
         wave_function_collapse.OverrideSingleCell(0, m_columns - 1, new int[] {1});
 
         m_grid = wave_function_collapse.Run(false);
@@ -41,4 +42,9 @@ public class DungeonCreator : MonoBehaviour
         }
     }
 
+    private void getRoomWithKey(int roomWithKeyID)
+    {
+        int room = Random.Range(1, m_columns-1);
+        wave_function_collapse.OverrideSingleCell(0, room, new int[] { roomWithKeyID });
+    }
 }

@@ -23,19 +23,17 @@ public class WFC_I_GameObject : WFC_Interpreter
         int roomToInstance = m_roomsList.Count;
         if (roomToInstance == 0)
         {
-            GameObject tmpRoom =  GameObject.Instantiate(m_primitives.GetFragmentByID(m_grid[0, 0].FinalSolution).Room, Vector3.zero, Quaternion.identity);
+            GameObject tmpRoom          =  RoomPooler.poolOfRooms[m_grid[0,0].FinalSolution].Get();
+            tmpRoom.transform.position  =  Vector3.zero;
             m_roomsList.Add(tmpRoom.GetComponent<Room>());
         }
         else if(roomToInstance < m_grid.GetLength(1))
         {
-            Vector3 offset = m_primitives.GetFragmentByID(m_grid[0, roomToInstance].FinalSolution).Room.GetComponent<Room>().m_entrance.position;
-            Vector3 origin = m_roomsList[roomToInstance - 1].m_exit.position;
-            Vector3 position = origin - offset;
-            GameObject tmpRoom = GameObject.Instantiate(m_primitives.GetFragmentByID(m_grid[0, roomToInstance].FinalSolution).Room, position, Quaternion.identity);
+            Vector3 offset              = m_primitives.GetFragmentByID(m_grid[0, roomToInstance].FinalSolution).Room.GetComponent<Room>().m_entrance.position;
+            Vector3 origin              = m_roomsList[roomToInstance - 1].m_exit.position;
+            GameObject tmpRoom          = RoomPooler.poolOfRooms[m_grid[0,roomToInstance].FinalSolution].Get();
+            tmpRoom.transform.position  = origin - offset;
             m_roomsList.Add(tmpRoom.GetComponent<Room>());
         }
     }
-
-
-    ///
 }
