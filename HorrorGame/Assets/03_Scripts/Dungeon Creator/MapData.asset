@@ -55,3 +55,10 @@ MonoBehaviour:
       rgba: 0
     Room: {fileID: 6001927499222443127, guid: 78fe457a86391d741a9962eb8c56b146, type: 3}
     Sockets: 01000000010000000100000001000000
+  - tag: Key Room
+    id: 6
+    ColorFragment:
+      serializedVersion: 2
+      rgba: 0
+    Room: {fileID: 8656016391411522358, guid: 825cacc527fd84248b02a5ba5b008723, type: 3}
+    Sockets: 01000000010000000100000001000000

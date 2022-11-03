@@ -6,5 +6,4 @@ public class Room : MonoBehaviour
 {
     public Transform m_entrance;
     public Transform m_exit;
-    public int id;
 }
