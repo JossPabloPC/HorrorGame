@@ -8,6 +8,6 @@ public class Ammo : PickableObj
     public override void OnTriggerWithPlayer(PlayerStats playerStats)
     {
         base.OnTriggerWithPlayer(playerStats);
-        playerStats.Ammo = ammo;
+        playerStats.Ammo += ammo;
     }
 }

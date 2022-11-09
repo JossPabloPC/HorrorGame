@@ -31,4 +31,11 @@ public abstract class PickableObj : MonoBehaviour
     {
     }
 
+    protected void OnTriggerEnter(Collider other)
+    {
+        PlayerStats tmp = other.GetComponent<PlayerStats>();
+        if (tmp != null)
+            OnTriggerWithPlayer(tmp);
+
+    }
 }
