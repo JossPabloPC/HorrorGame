@@ -8,12 +8,17 @@ public class DungeonCreator : MonoBehaviour
     [SerializeField] private int                m_rows      = 1;
     [SerializeField] private PrimitiveList_Data m_sockets_data;
 
-    Wave_Function_Collapse wave_function_collapse;
-    public WFC_I_GameObject m_RoomCreator;
+    private Wave_Function_Collapse wave_function_collapse;
+    public  WFC_I_GameObject m_RoomCreator;
+    public static DungeonCreator Instace;
 
 
     Cell[,] m_grid;
 
+    private void Awake()
+    {
+        Instace = this;
+    }
 
     void Start()
     {
