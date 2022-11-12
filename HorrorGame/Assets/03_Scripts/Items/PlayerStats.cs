@@ -12,4 +12,6 @@ public class PlayerStats : MonoBehaviour
         set { _ammo = value; }
         get { return _ammo; }
     }
+
+    public int Health { get => _health; set => _health = value; }
 }

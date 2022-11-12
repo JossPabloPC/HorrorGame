@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ammo : PickableObj
+public class MedKit : PickableObj
 {
-    public int ammo;
+    public int health;
     public override void OnTriggerWithPlayer(PlayerStats playerStats)
     {
         base.OnTriggerWithPlayer(playerStats);
-        playerStats.Ammo += ammo;
+        playerStats.Health += health;
         gameObject.SetActive(false);
     }
 }
