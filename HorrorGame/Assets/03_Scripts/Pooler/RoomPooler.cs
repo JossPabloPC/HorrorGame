@@ -9,7 +9,7 @@ public class RoomPooler : MonoBehaviour
     [SerializeField] private PrimitiveList_Data m_sockets_data;
     
 
-    private void Start()
+    private void Awake()
     {
         poolOfRooms = new Dictionary<int, Pooler>();
 
