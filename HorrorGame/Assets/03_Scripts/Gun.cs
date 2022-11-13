@@ -46,6 +46,11 @@ public class Gun : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
+       InputShoot();
+    }
+
+    private void InputShoot(){
+         //Inputs
         if(Input.GetButton("Fire1")&&Time.time>=nextTimeFire&&!pistol)//Disparos continuos(ametralladora)
         {
             nextTimeFire=Time.time+1f/fireRate;//cadencia de disparo por segundo
@@ -66,14 +71,18 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,range))//creamos y comprobamos el Raycast
         {
             Debug.Log(hit.transform.name);
+
+            //Instantiate(impactEffect,hit.point, Quaternion.LookRotation(hit.normal));//generamos las particulas
+
+
+            /*
             if(hit.rigidbody)
             {
                 hit.rigidbody.AddForce(hit.normal*impactForce);//LE añadimos una fuerza al objeto impactado
             }
-            //Instantiate(impactEffect,hit.point, Quaternion.LookRotation(hit.normal));//generamos las particulas
-
+            
             //Aqui va lo de hacer daño al enemigo
-            /*
+            
             Enemy enemy =hit.transform.GetComponent<Enemy>();
             if(enemy!=null)
             {

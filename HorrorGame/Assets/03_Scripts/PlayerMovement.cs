@@ -20,10 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     [SerializeField] private bool isGrounded;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -45,4 +42,5 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity*Time.deltaTime);//Aplicamos gravedad
     
     }
+  
 }
