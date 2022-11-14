@@ -230,10 +230,11 @@ GameObject:
   - component: {fileID: 120007135}
   - component: {fileID: 120007140}
   - component: {fileID: 120007139}
+  - component: {fileID: 120007141}
   - component: {fileID: 120007134}
   - component: {fileID: 120007133}
   - component: {fileID: 120007132}
-  - component: {fileID: 120007131}
+  - component: {fileID: 120007142}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -241,21 +242,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &120007131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120007130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f97426edfd8a9144a2efa9845d68987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateMachine: {fileID: 120007134}
-  idle: {fileID: 120007133}
-  chase: {fileID: 120007132}
 --- !u!114 &120007132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +397,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &120007141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120007130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f97426edfd8a9144a2efa9845d68987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: 0}
+  idle: {fileID: 0}
+  chase: {fileID: 0}
+  attack: {fileID: 0}
+--- !u!114 &120007142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120007130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36efd9d820aac0748bcfaffd20409d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navAgent: {fileID: 120007139}
+  pointToFollow: {fileID: 1178864003}
+  canAttack: 0
 --- !u!1 &386582203
 GameObject:
   m_ObjectHideFlags: 0

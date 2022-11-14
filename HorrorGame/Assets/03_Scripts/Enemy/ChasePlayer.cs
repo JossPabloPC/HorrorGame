@@ -15,7 +15,17 @@ public class ChasePlayer : State
     {
         if (foundPlayer)
         {
-            Follow();
+            Chase();
+            Debug.Log("Te sigo");
+            if (navAgent.remainingDistance <= 1.4)
+            {
+                //Debug.Log("Attack");
+                m_stateMachine.ChangeState(m_character.attack);
+            }
+        }
+        else if (!foundPlayer)
+        {
+            Debug.Log("Idle");
         }
     }
 
@@ -33,7 +43,7 @@ public class ChasePlayer : State
         foundPlayer = false;
     }
 
-    public void Follow()
+    public void Chase()
     {
         navAgent.SetDestination(pointToFollow.position);
     }
