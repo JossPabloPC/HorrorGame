@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2cc5c462cfe1cbf4c9ec5c9f23888287
+guid: 01d883c0e0c5a674fb22a6c605a7d1e3
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Who asks Satan
+  - Storm Gust
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

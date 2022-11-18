@@ -10,21 +10,6 @@ public class MainMenuManager : MonoBehaviour
         //SceneManager.LoadScene(1);
     }
 
-    public void Opciones()
-    {
-
-    }
-
-    public void Creditos()
-    {
-
-    }
-
-    public void Volver()
-    {
-
-    }
-
     public void Salir()
     {
         Application.Quit();
