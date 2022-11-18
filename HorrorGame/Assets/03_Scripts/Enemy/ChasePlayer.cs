@@ -17,7 +17,8 @@ public class ChasePlayer : State
         {
             Chase();
             Debug.Log("Te sigo");
-            if (navAgent.remainingDistance <= 2)
+            //Debug.Log("Distancia: " + navAgent.remainingDistance);
+            if (navAgent.remainingDistance <= 1.5)
             {
                 //Debug.Log("Attack");
                 m_stateMachine.ChangeState(m_character.attack);

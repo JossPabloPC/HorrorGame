@@ -47,7 +47,7 @@ public class AttackPlayer : State
         {
             Debug.Log("Attacking");
             navAgent.SetDestination(pointToFollow.position);
-            if(navAgent.remainingDistance > 2)
+            if(navAgent.remainingDistance > 1.5)
             {
                 m_stateMachine.ChangeState(m_character.chase);
             }
