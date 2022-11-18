@@ -36,4 +36,11 @@ public class EnemyIdle : State
             Debug.Log("webos");
         }
     }
+
+    [ContextMenu("Disparo")]
+    public void GotShot()
+    {
+        m_stateMachine.ChangeState(m_character.chase);
+        Debug.Log("Me dispararon");
+    }
 }
