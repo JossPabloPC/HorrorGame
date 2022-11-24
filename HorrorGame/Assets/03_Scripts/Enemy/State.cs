@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class State : MonoBehaviour
 {
-    protected EnemyAI m_character;
-    protected StateMachine m_stateMachine;
+    public static State instance;
+    public EnemyAI m_character;
+    public StateMachine m_stateMachine;
+
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //    }
+    //    else
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //}
 
     public void Init(EnemyAI character, StateMachine stateMachine)
     {
