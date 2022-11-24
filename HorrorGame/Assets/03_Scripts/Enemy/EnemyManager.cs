@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour, IReceiveDamage
 {
     public int hP;
+    public int hitForce;
     public static State stateInstance;
 
     // Start is called before the first frame update
@@ -24,4 +25,14 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
+
+    public void Damage()
+    {
+        hP -= hitForce;
+    }
+}
+
+public interface IReceiveDamage
+{
+    void Damage();
 }

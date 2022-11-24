@@ -256,7 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833e8b6bcc233ff4784fec21aaa563d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hP: 100
+  hP: 3
+  hitForce: 1
 --- !u!114 &120007132
 MonoBehaviour:
   m_ObjectHideFlags: 0
