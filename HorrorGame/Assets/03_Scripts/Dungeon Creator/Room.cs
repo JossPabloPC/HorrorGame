@@ -8,7 +8,7 @@ public class Room : MonoBehaviour
     public Transform m_entrance;
     public Transform m_exit;
 
-    [SerializeField] private NavMeshSurface [] romsSurfaces;
+    [SerializeField] private NavMeshSurface [] roomsSurfaces;
 
     private void OnEnable()
     {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5496526894576254563}
   - component: {fileID: 5496526894576254560}
   - component: {fileID: 5496526894576254561}
+  - component: {fileID: 1971665419627763978}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -95,6 +96,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1971665419627763978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5496526894576254559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 45bc61dcf39dfe64593f917337dcb7fb, type: 2}
 --- !u!1 &5496526894785212645
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +136,7 @@ GameObject:
   - component: {fileID: 5496526894785212644}
   - component: {fileID: 5496526894785212649}
   - component: {fileID: 5496526894785212646}
-  - component: {fileID: 5496526894785212647}
+  - component: {fileID: 6946808404524600685}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -177,20 +207,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5496526894785212647
-CapsuleCollider:
+--- !u!114 &6946808404524600685
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5496526894785212645}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 7581fb09531d43e48bbcb7f888fda63a, type: 2}
 --- !u!1 &5496526895210214669
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +247,7 @@ GameObject:
   - component: {fileID: 5496526895210214668}
   - component: {fileID: 5496526895210214673}
   - component: {fileID: 5496526895210214670}
-  - component: {fileID: 5496526895210214671}
+  - component: {fileID: 1837774491333164485}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -273,20 +318,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5496526895210214671
-CapsuleCollider:
+--- !u!114 &1837774491333164485
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5496526895210214669}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 3e779e2b2e33082448ea093a12fac73f, type: 2}
 --- !u!1 &5496526895246773454
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +358,7 @@ GameObject:
   - component: {fileID: 5496526895246773457}
   - component: {fileID: 5496526895246773458}
   - component: {fileID: 5496526895246773459}
-  - component: {fileID: 5496526895246773456}
+  - component: {fileID: 405439183009183022}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -369,20 +429,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5496526895246773456
-CapsuleCollider:
+--- !u!114 &405439183009183022
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5496526895246773454}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 3e6c065616398404ea8a9d993edf1d7a, type: 2}
 --- !u!1 &5496526895302942284
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +509,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_entrance: {fileID: 5836314568981687361}
   m_exit: {fileID: 8983961157761548258}
+  roomsSurfaces:
+  - {fileID: 1971665419627763978}
+  - {fileID: 1837774491333164485}
+  - {fileID: 405439183009183022}
+  - {fileID: 6946808404524600685}
 --- !u!1 &6550708241922008265
 GameObject:
   m_ObjectHideFlags: 0
