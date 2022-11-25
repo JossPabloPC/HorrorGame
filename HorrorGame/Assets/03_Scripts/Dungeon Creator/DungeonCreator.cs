@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DungeonCreator : MonoBehaviour
 {
+    public delegate void Notify();
+    public event Notify rebuildNavMesh;
+
     [SerializeField] private int                m_columns   = 10;
     [SerializeField] private int                m_rows      = 1;
     [SerializeField] private PrimitiveList_Data m_sockets_data;
 
     private Wave_Function_Collapse wave_function_collapse;
-    public  WFC_I_GameObject m_RoomCreator;
+    private  WFC_I_GameObject m_RoomCreator;
     public static DungeonCreator Instace;
 
 
@@ -43,13 +47,24 @@ public class DungeonCreator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Pressed");
-            m_RoomCreator.DisplayNextRoom();
+            DisplayNextRoom();
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            NavMesh.RemoveAllNavMeshData();
+        }
+
     }
 
     private void getRoomWithKey(int roomWithKeyID)
     {
         int room = Random.Range(1, m_columns-1);
         wave_function_collapse.OverrideSingleCell(0, room, new int[] { roomWithKeyID });
+    }
+
+    public void DisplayNextRoom()
+    {
+        m_RoomCreator.DisplayNextRoom();
+        rebuildNavMesh.Invoke();
     }
 }

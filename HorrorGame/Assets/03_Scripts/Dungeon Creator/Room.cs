@@ -10,8 +10,17 @@ public class Room : MonoBehaviour
 
     [SerializeField] private NavMeshSurface [] roomsSurfaces;
 
-    private void OnEnable()
+    private void Start()
+    {
+        DungeonCreator.Instace.rebuildNavMesh += RebuildNavMesh;
+    }
+
+    private void RebuildNavMesh()
     {
         Debug.Log("CreateNavMesh");
+        for(int i = 0; i<roomsSurfaces.Length; i++)
+        {
+            roomsSurfaces[i].BuildNavMesh();
+        }
     }
 }

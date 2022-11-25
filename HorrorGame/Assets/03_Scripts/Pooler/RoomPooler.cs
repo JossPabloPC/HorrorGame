@@ -20,13 +20,4 @@ public class RoomPooler : MonoBehaviour
         }
         
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            GameObject tmp = poolOfRooms[1].Get();
-            tmp.transform.position = Vector3.one;
-        }
-    }
 }
