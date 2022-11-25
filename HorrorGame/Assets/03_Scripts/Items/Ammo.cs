@@ -9,6 +9,6 @@ public class Ammo : PickableObj
     {
         base.OnTriggerWithPlayer(playerStats);
         playerStats.Ammo += ammo;
-        gameObject.SetActive(false);
+        ItemPooler.Instance.ammoPooler.Release(this.gameObject);
     }
 }

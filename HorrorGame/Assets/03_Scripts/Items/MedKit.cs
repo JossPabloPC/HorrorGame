@@ -9,6 +9,7 @@ public class MedKit : PickableObj
     {
         base.OnTriggerWithPlayer(playerStats);
         playerStats.Health += health;
-        gameObject.SetActive(false);
+        ItemPooler.Instance.hkPooler.Release(this.gameObject);
+
     }
 }
