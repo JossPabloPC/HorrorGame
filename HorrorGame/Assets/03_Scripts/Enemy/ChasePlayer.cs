@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class ChasePlayer : State
 {
     public NavMeshAgent navAgent;
+    [SerializeField]
+    private float attackingDistance;
     public Transform pointToFollow;
     [SerializeField]
     private bool foundPlayer;
@@ -19,7 +21,7 @@ public class ChasePlayer : State
             Debug.Log("Te sigo");
             //Debug.Log("Distancia: " + navAgent.remainingDistance);
             //If the enemy is close enough of the player it'll start attacking
-            if (navAgent.remainingDistance <= 1.5)
+            if (navAgent.remainingDistance <= attackingDistance)
             {
                 m_stateMachine.ChangeState(m_character.attack);
             }

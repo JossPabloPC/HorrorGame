@@ -7,6 +7,8 @@ public class AttackPlayer : State
 {
     public NavMeshAgent navAgent;
     public Transform pointToFollow;
+    [SerializeField]
+    private float attackingDistance;
     public int attackSpan;
     public bool canAttack;
 
@@ -29,7 +31,7 @@ public class AttackPlayer : State
     {
         while (canAttack)
         {
-            if(navAgent.remainingDistance > 1.5)
+            if(navAgent.remainingDistance > attackingDistance)
             {
                 m_stateMachine.ChangeState(m_character.chase);
             }
