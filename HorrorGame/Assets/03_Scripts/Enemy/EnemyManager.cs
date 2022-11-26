@@ -19,9 +19,9 @@ public class EnemyManager : MonoBehaviour, IReceiveDamage
     {
         if(hP <= 0)
         {
-            //m_stateMachine.ChangeState(m_character.chase);
             Debug.Log("c va a morir");
-            stateInstance.m_stateMachine.ChangeState(stateInstance.m_character.die);
+            //stateInstance.m_stateMachine.ChangeState(stateInstance.m_character.die);
+            StateMachine.instance.ChangeState(EnemyAI.instance.die);
         }
         
     }

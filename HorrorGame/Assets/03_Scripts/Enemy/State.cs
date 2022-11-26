@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class State : MonoBehaviour
 {
-    public static State instance;
     public EnemyAI m_character;
     public StateMachine m_stateMachine;
 
