@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class EnemyIdle : State
 {
-    bool canIdle;
     public override void Enter()
     {
         base.Enter();
         Debug.Log("Estoy en Idle");
-        canIdle = true;
+        //canIdle = true;
     }
 
     public override void Exit()
     {
         base.Exit();
-        canIdle = false;
+        //canIdle = false;
     }
 
     private void OnTriggerEnter(Collider other)
