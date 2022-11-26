@@ -6,6 +6,20 @@ public class StateMachine : MonoBehaviour
 {
     protected State m_currentState;
 
+    public static StateMachine instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public void Init(State firstState)
     {
         m_currentState = firstState;
