@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ZombieAnimations))]
+
 public class EnemyManager : MonoBehaviour, IReceiveDamage
 {
     public int hP;
-    public int hitForce;
+    public int damageForce;
     public static State stateInstance;
 
     // Start is called before the first frame update
@@ -20,15 +22,15 @@ public class EnemyManager : MonoBehaviour, IReceiveDamage
         if(hP <= 0)
         {
             Debug.Log("c va a morir");
-            //stateInstance.m_stateMachine.ChangeState(stateInstance.m_character.die);
             StateMachine.instance.ChangeState(EnemyAI.instance.die);
         }
         
     }
 
+    //Receive damage
     public void Damage()
     {
-        hP -= hitForce;
+        hP -= damageForce;
     }
 }
 

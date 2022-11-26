@@ -8,9 +8,7 @@ public class EnemyDie : State
     {
         base.Enter();
         Debug.Log("Moricion");
-        /// TO DO: Ejecutar animacion
-        this.gameObject.SetActive(false);
-        //m_stateMachine.ChangeState(m_character.chase);
+        StartCoroutine(DieTime());
     }
 
     public override void Exit()
@@ -18,15 +16,14 @@ public class EnemyDie : State
         base.Exit();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    //Dissables Zombie's GameObject after 3s 
+    IEnumerator DieTime()
     {
-        
-    }
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            this.gameObject.SetActive(false);
+        }
     }
 }

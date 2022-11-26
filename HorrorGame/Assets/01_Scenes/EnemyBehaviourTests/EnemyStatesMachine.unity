@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 120007132}
   - component: {fileID: 120007142}
   - component: {fileID: 120007143}
+  - component: {fileID: 120007144}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hP: 3
-  hitForce: 1
+  damageForce: 0
 --- !u!114 &120007132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +467,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_character: {fileID: 0}
   m_stateMachine: {fileID: 0}
+--- !u!114 &120007144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120007130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68f5e7f6a24d9141a9313eb283b7268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareState: {fileID: 0}
+  currentState: {fileID: 0}
+  zombieAnimator: {fileID: 0}
 --- !u!1 &386582203
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hP: 3
-  hitForce: 1
+  damageForce: 0
 --- !u!195 &1394472267
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3827,6 +3843,7 @@ GameObject:
   - component: {fileID: 1394472264}
   - component: {fileID: 1394472265}
   - component: {fileID: 1394472266}
+  - component: {fileID: 8296172668448810654}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Untagged
@@ -3834,6 +3851,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8296172668448810654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172668448810653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68f5e7f6a24d9141a9313eb283b7268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareState: {fileID: 0}
+  currentState: {fileID: 0}
+  zombieAnimator: {fileID: 0}
 --- !u!1 &8364456254624145599
 GameObject:
   m_ObjectHideFlags: 0

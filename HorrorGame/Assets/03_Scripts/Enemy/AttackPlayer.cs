@@ -10,28 +10,12 @@ public class AttackPlayer : State
     public int attackSpan;
     public bool canAttack;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //if(navAgent.remainingDistance > 1.4)
-        //{
-
-        //}
-    }
-
     public override void Enter()
     {
         base.Enter();
         Debug.Log("Attack");
         canAttack = true;
         StartCoroutine(RoutineAttack());
-
     }
 
     public override void Exit()
@@ -45,12 +29,12 @@ public class AttackPlayer : State
     {
         while (canAttack)
         {
-            Debug.Log("Attacking");
-            navAgent.SetDestination(pointToFollow.position);
             if(navAgent.remainingDistance > 1.5)
             {
                 m_stateMachine.ChangeState(m_character.chase);
             }
+            Debug.Log("Attacking");
+            navAgent.SetDestination(pointToFollow.position);
             yield return new WaitForSeconds(attackSpan);
         }
     }

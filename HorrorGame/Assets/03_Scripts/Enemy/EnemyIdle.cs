@@ -11,7 +11,6 @@ public class EnemyIdle : State
         base.Enter();
         Debug.Log("Estoy en Idle");
         canIdle = true;
-        //m_stateMachine.ChangeState(m_character.chase);
     }
 
     public override void Exit()
@@ -20,20 +19,11 @@ public class EnemyIdle : State
         canIdle = false;
     }
 
-    private void Update()
-    {
-        if (canIdle)
-        {
-
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 0 && other.gameObject.layer != 7)
         {
             m_stateMachine.ChangeState(m_character.chase);
-            Debug.Log("webos");
         }
     }
 

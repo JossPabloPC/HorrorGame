@@ -7,18 +7,6 @@ public class State : MonoBehaviour
     public EnemyAI m_character;
     public StateMachine m_stateMachine;
 
-    //private void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //    }
-    //    else
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
     public void Init(EnemyAI character, StateMachine stateMachine)
     {
         m_character = character;
@@ -26,11 +14,13 @@ public class State : MonoBehaviour
         this.enabled = false;
     }
 
+    //What to do when enters the state
     public virtual void Enter()
     {
 
     }
 
+    //What to do when exiting the state
     public virtual void Exit()
     {
 

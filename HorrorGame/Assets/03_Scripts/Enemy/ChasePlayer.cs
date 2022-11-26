@@ -18,16 +18,16 @@ public class ChasePlayer : State
             Chase();
             Debug.Log("Te sigo");
             //Debug.Log("Distancia: " + navAgent.remainingDistance);
+            //If the enemy is close enough of the player it'll start attacking
             if (navAgent.remainingDistance <= 1.5)
             {
-                //Debug.Log("Attack");
                 m_stateMachine.ChangeState(m_character.attack);
             }
         }
-        else if (!foundPlayer)
-        {
-            Debug.Log("Idle");
-        }
+        //else if (!foundPlayer)
+        //{
+        //    Debug.Log("Idle");
+        //}
     }
 
     public override void Enter()
@@ -54,16 +54,8 @@ public class ChasePlayer : State
         if (other.gameObject.layer != 0 && other.gameObject.layer != 7)
         {
             m_stateMachine.ChangeState(m_character.idle);
+            navAgent.SetDestination(this.transform.position);
             Debug.Log("webos bai");
         }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.layer != 0)
-    //    {
-    //        foundPlayer = true;
-    //        Enter();
-    //    }
-    //}
 }
