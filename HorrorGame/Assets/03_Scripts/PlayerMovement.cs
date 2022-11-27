@@ -31,12 +31,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isGrounded;
     public bool canMove=true;
     // Start is called before the first frame update
-<<<<<<< Updated upstream
+
     void Start()
     {
         
     }
-=======
+
     
     private void Awake() 
     {
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         } 
     }
 
->>>>>>> Stashed changes
+
 
     // Update is called once per frame
     void Update()
@@ -80,8 +80,8 @@ public class PlayerMovement : MonoBehaviour
         SprintInputs();
         
     }
-<<<<<<< Updated upstream
-=======
+
+
     private void SprintInputs(){
         if(Input.GetKey(KeyCode.LeftShift)&&canSprint)//Sprint
         {
@@ -114,5 +114,5 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
->>>>>>> Stashed changes
+
 }
