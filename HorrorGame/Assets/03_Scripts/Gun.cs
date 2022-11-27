@@ -13,9 +13,9 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Transform pistolPosition;
     //public GameObject impactEffect;
-<<<<<<< Updated upstream
+
     public Camera fpsCam;
-=======
+
 
     //Reloading
     public int maxAmmo=6;
@@ -26,18 +26,13 @@ public class Gun : MonoBehaviour
     public Image reloadProgres;
     
 
->>>>>>> Stashed changes
+
     //Disparo rapido
     public float fireRate=15f;
     private float nextTimeFire =0f;
     [SerializeField] private bool pistol;
 
-<<<<<<< Updated upstream
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetButton("Fire1")&&Time.time>=nextTimeFire&&!pistol)//Disparos continuos(ametralladora)
-=======
+
     private void Start() {
         currentAmmo=maxAmmo;
         pistolPosition.transform.position=this.transform.localPosition;
@@ -54,6 +49,9 @@ public class Gun : MonoBehaviour
     void Update()
     {
         if(isReloading){//si estamos recargando no queremos hacer todo lo demas
+            PlayerMovement.pmInstance.canMove=true;
+            return;        
+        }
             if(Input.GetButtonUp("Fire2"))//Dejamos de apuntar
             {
                 PlayerMovement.pmInstance.canMove=true;
@@ -88,14 +86,13 @@ public class Gun : MonoBehaviour
             
         }
         if(Input.GetButton("Fire1")&&Time.time>=nextTimeFire&&!pistol&&canShoot)//Disparos continuos(ametralladora) si podemos apuntar
->>>>>>> Stashed changes
         {
             nextTimeFire=Time.time+1f/fireRate;//cadencia de disparo por segundo
             Shoot();
         }
         if(Input.GetButtonDown("Fire1")&&pistol&&canShoot)//Disparos controlados (pistola) si podemos apuntar
         {
-            
+          
             Shoot();
         }
     }
@@ -108,26 +105,13 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,range))
         {
             Debug.Log(hit.transform.name);
-<<<<<<< Updated upstream
-            if(hit.rigidbody)
-            {
-                hit.rigidbody.AddForce(hit.normal*impactForce);//LE añadimos una fuerza al objeto impactado
-            }
-            //Instantiate(impactEffect,hit.point, Quaternion.LookRotation(hit.normal));//generamos las particulas
 
-            //Aqui va lo de hacer daño al enemigo
-            /*
-            Enemy enemy =hit.transform.GetComponent<Enemy>();
-            if(enemy!=null)
-            {
-                enemy.takeDamage
-            }
-            */
+       
         }
     }
-=======
-        }
-    }
+
+        
+    
     IEnumerator Reload ()
     {
         float timeTrans=0f;
@@ -138,8 +122,6 @@ public class Gun : MonoBehaviour
         {
             reloadProgres.fillAmount=Mathf.Lerp(0,1,timeTrans);
             reloadProgres.fillAmount=0;
-            
-
             timeTrans+=Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
@@ -147,10 +129,8 @@ public class Gun : MonoBehaviour
         currentAmmo=maxAmmo;//volvemos a rellanar la municion al maximo
         animatorWeapon.SetBool("Reload",false);
         isReloading=false;//No se esta recargando
-        
-
-        
+          
     }
->>>>>>> Stashed changes
+
 
 }
