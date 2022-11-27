@@ -13,24 +13,57 @@ public class ChasePlayer : State
     [SerializeField]
     private bool foundPlayer;
 
+    private void Start()
+    {
+        navAgent = GetComponent<NavMeshAgent>();
+    }
+
     private void Update()
     {
         if (foundPlayer)
         {
+            //StartCoroutine(RoutineChase());
             Chase();
             Debug.Log("Te sigo");
-            //Debug.Log("Distancia: " + navAgent.remainingDistance);
+            Debug.Log("Distancia: " + navAgent.remainingDistance);
             //If the enemy is close enough of the player it'll start attacking
-            if (navAgent.remainingDistance <= attackingDistance)
+            if (navAgent.remainingDistance <= attackingDistance && !navAgent.pathPending)
             {
+                Debug.LogError("Distancia: " + navAgent.remainingDistance);
                 m_stateMachine.ChangeState(m_character.attack);
             }
+            //Chase();
+            //Debug.Log("Te sigo");
+            //Debug.Log("Distancia: " + navAgent.remainingDistance);
+            ////If the enemy is close enough of the player it'll start attacking
+            //if (navAgent.remainingDistance <= attackingDistance)
+            //{
+            //    Debug.LogError("Distancia: " + navAgent.remainingDistance);
+            //    m_stateMachine.ChangeState(m_character.attack);
+            //}
         }
         //else if (!foundPlayer)
         //{
         //    Debug.Log("Idle");
         //}
     }
+
+    //IEnumerator RoutineChase()
+    //{
+    //    while (!navAgent.pathPending)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        Chase();
+    //        Debug.Log("Te sigo");
+    //        Debug.Log("Distancia: " + navAgent.remainingDistance);
+    //        //If the enemy is close enough of the player it'll start attacking
+    //        if (navAgent.remainingDistance <= attackingDistance && !navAgent.pathPending)
+    //        {
+    //            Debug.LogError("Distancia: " + navAgent.remainingDistance);
+    //            m_stateMachine.ChangeState(m_character.attack);
+    //        }
+    //    }
+    //}
 
     public override void Enter()
     {

@@ -11,6 +11,15 @@ public class AttackPlayer : State
     private float attackingDistance;
     public int attackSpan;
     public bool canAttack;
+    private void Start()
+    {
+        navAgent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Update()
+    {
+        Debug.Log("Distancia: " + navAgent.remainingDistance);
+    }
 
     public override void Enter()
     {
@@ -31,13 +40,15 @@ public class AttackPlayer : State
     {
         while (canAttack)
         {
-            if(navAgent.remainingDistance > attackingDistance)
+            //yield return new WaitForSeconds(attackSpan);
+            navAgent.SetDestination(pointToFollow.position);
+            if(navAgent.remainingDistance > attackingDistance && !navAgent.pathPending)
             {
                 m_stateMachine.ChangeState(m_character.chase);
+                Debug.LogError("aki");
             }
             Debug.Log("Attacking");
-            navAgent.SetDestination(pointToFollow.position);
-            yield return new WaitForSeconds(attackSpan);
+            yield return new WaitForEndOfFrame();
         }
     }
 }
