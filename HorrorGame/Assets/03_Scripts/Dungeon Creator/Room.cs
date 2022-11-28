@@ -17,7 +17,6 @@ public class Room : MonoBehaviour
 
     private void RebuildNavMesh()
     {
-        Debug.Log("CreateNavMesh");
         for(int i = 0; i<roomsSurfaces.Length; i++)
         {
             roomsSurfaces[i].BuildNavMesh();
