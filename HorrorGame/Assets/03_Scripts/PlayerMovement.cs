@@ -85,31 +85,35 @@ public class PlayerMovement : MonoBehaviour
     private void SprintInputs(){
         if(Input.GetKey(KeyCode.LeftShift)&&canSprint)//Sprint
         {
-            sprintStamina.value-=staminaDecrese*Time.deltaTime;
-            controller.Move(move*sprintSpeed*Time.deltaTime);
+            sprintStamina.value-=staminaDecrese*Time.deltaTime;//Bajamos la barra de stamina
+            controller.Move(move*sprintSpeed*Time.deltaTime);//Vamos mas rapido
             
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
+        if(Input.GetKeyUp(KeyCode.LeftShift))//si dejamos de correr 
         {
-            StartCoroutine(StaminaRecharge(sprintStamina.value));   
+            sprintStamina.value+=staminaIncrease*Time.deltaTime;//Recarga desde donde se quedo la barra  
         }
-        if(sprintStamina.value<0.1f)
+        if(sprintStamina.value<0.1f)//si agota su barra por completo
         {
-            StartCoroutine(StaminaRecharge(sprintStamina.value));
+            
+            StartCoroutine(StaminaRecharge(sprintStamina.value));//tenemos que esperar hasta que se rellene por completo
         }
     }
     public IEnumerator StaminaRecharge(float staminaV)
     {
-        float timeTrans=0f;
+        float timeTrans=0;
         canSprint=false;
-        while(timeTrans<sprintRecharge)
+        while(timeTrans<sprintRecharge) 
         {
-            
-            sprintStamina.value+=staminaIncrease*Time.deltaTime;
+            sprintStamina.value=Mathf.Lerp(0,1,timeTrans/sprintRecharge);
             timeTrans+=Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            if(sprintStamina.value>=1)//hasta que no se halla rellenado la barra no podemos volver a correr
+            {
+                canSprint=true;
+            }
         }
-        canSprint=true;
+        
+        yield return new WaitUntil(()=>canSprint);
         
         
     }

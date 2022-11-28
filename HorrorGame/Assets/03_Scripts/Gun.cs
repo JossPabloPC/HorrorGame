@@ -1,15 +1,13 @@
-using System.Collections;
+//using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 
 public class Gun : MonoBehaviour
 {
     public float damage=10f;
     public float range=100f;
     public float impactForce=10f;
-    public Camera fpsCam;//referencia a la camara
     public ParticleSystem muzzFlash; 
     private bool canShoot=false;
 
@@ -26,7 +24,7 @@ public class Gun : MonoBehaviour
     [SerializeField]private bool isReloading=false;
     public Animator animatorWeapon;
     public Image reloadProgres;
-    
+    public Image aim;//Aqui se pone la cruz de la mira
 
 
     //Disparo rapido
@@ -39,6 +37,7 @@ public class Gun : MonoBehaviour
         currentAmmo=maxAmmo;
         pistolPosition.transform.position=this.transform.localPosition;
         reloadProgres.fillAmount=0;
+        aim.setActive(false);
     }
     /*
     onEnable()//En caso de que queramos aumentar el número de armas para evitar bugs
@@ -61,7 +60,7 @@ public class Gun : MonoBehaviour
             }
             return;
         }
-        if(currentAmmo<=0)//si nos acabamos la municion recargamos
+        if(currentAmmo==0)//si nos acabamos la municion recargamos
         {
             StartCoroutine(Reload());
             return;
@@ -76,6 +75,7 @@ public class Gun : MonoBehaviour
          {
             //this.transform.SetParent(fpsCam.transform);
             PlayerMovement.pmInstance.canMove=false;
+            aim.setActive(true);
             canShoot=true;
             
          }
@@ -84,6 +84,7 @@ public class Gun : MonoBehaviour
             //this.transform.localPosition= pistolPosition.transform.position;
             //this.transform.SetParent(PlayerMovement.pmInstance.transform);
             PlayerMovement.pmInstance.canMove=true;
+            aim.setActive(false);
             canShoot=false;
             
         }
@@ -102,30 +103,19 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-        muzzFlash.Play();//llamamos las particulas
-        RaycastHit hit;//Lo que golpeamos con el raycast
-        currentAmmo--;//cada vez que disparamos perdemos munición
-        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,range))//creamos y comprobamos el Raycast
+        muzzFlash.Play();
+        RaycastHit hit;
+        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,range))
         {
             Debug.Log(hit.transform.name);
 
        
         }
     }
-    IEnumerator Reload ()
-    {
-        isReloading=true;//Se esta recargando
-        Debug.Log("Reloading...");
-        animatorWeapon.SetBool("Reload",true);
-        yield return new WaitForSeconds(reloadTime);//esperamos n segundos a que revargue
-        currentAmmo=maxAmmo;//volvemos a rellanar la municion al maximo
-        animatorWeapon.SetBool("Reload",false);
-        isReloading=false;//No se esta recargando
-    }
 
         
     
-    IEnumerator Reload ()
+    public IEnumerator Reload ()
     {
         float timeTrans=0f;
         isReloading=true;//Se esta recargando
@@ -133,16 +123,19 @@ public class Gun : MonoBehaviour
         animatorWeapon.SetBool("Reload",true);
         while(timeTrans<reloadTime)
         {
-            reloadProgres.fillAmount=Mathf.Lerp(0,1,timeTrans);
-            reloadProgres.fillAmount=0;
+            reloadProgres.fillAmount=Mathf.Lerp(0,1,timeTrans/reloadTime);
             timeTrans+=Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            if(reloadProgres.fillAmount>=1){
+                currentAmmo=maxAmmo;//volvemos a rellanar la municion al maximo
+                animatorWeapon.SetBool("Reload",false);//desactivamos la animación de recarga
+                isReloading=false;//No se esta recargando
+                reloadProgres.fillAmount=0;
+            }
+            
         }
-        //yield return new WaitForSeconds(reloadTime);//esperamos n segundos a que recargue
-        currentAmmo=maxAmmo;//volvemos a rellanar la municion al maximo
-        animatorWeapon.SetBool("Reload",false);
-        isReloading=false;//No se esta recargando
-          
+        
+        
+          yield return new WaitUntil(()=>isReloading=false);
     }
 
 
