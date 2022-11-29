@@ -46,8 +46,9 @@ public class AttackPlayer : State
             {
                 m_stateMachine.ChangeState(m_character.chase);
             }
+            PlayerManager.instance.Damage();
             Debug.Log("Attacking");
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(2);
         }
     }
 }
