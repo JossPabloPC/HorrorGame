@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ef4bd2eb96c2844a0f0d48efc1d91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_entrance: {fileID: 9147686548949916374}
-  m_exit: {fileID: 2277325989813128543}
+  m_entrance: {fileID: 7506217064765027059}
+  m_exit: {fileID: 2808273035443298228}
   roomsSurfaces:
   - {fileID: 5318913788572922960}
   - {fileID: 93141484421084048}
