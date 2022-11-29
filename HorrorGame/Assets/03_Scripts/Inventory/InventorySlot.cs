@@ -7,6 +7,7 @@ public class InventorySlot : MonoBehaviour
     Item item;
     public Button removeBtn;
 
+    [ContextMenu("cola")]
     public void AddItem(Item newItem)
     {
         item = newItem;

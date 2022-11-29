@@ -18,14 +18,7 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallback += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-        if (inventoryUI.GetComponent<Canvas>().enabled)
-        {
-            inventoryUI.GetComponent<Canvas>().enabled = false;
-        }
-        else
-        {
-            inventoryUI.GetComponent<Canvas>().enabled = true;
-        }
+        
     }
 
     // Update is called once per frame
@@ -33,7 +26,14 @@ public class InventoryUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-
+            if (inventoryUI.GetComponent<Canvas>().enabled)
+            {
+                inventoryUI.GetComponent<Canvas>().enabled = false;
+            }
+            else
+            {
+                inventoryUI.GetComponent<Canvas>().enabled = true;
+            }
         }
     }
 
