@@ -42,19 +42,6 @@ public class DungeonCreator : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Pressed");
-            DisplayNextRoom();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            NavMesh.RemoveAllNavMeshData();
-        }
-
-    }
 
     private void getRoomWithKey(int roomWithKeyID)
     {
