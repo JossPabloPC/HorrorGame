@@ -1,5 +1,5 @@
-//using System.Collections;
-//using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +37,7 @@ public class Gun : MonoBehaviour
         currentAmmo=maxAmmo;
         pistolPosition.transform.position=this.transform.localPosition;
         reloadProgres.fillAmount=0;
-        aim.setActive(false);
+        aim.enabled = false;
     }
     /*
     onEnable()//En caso de que queramos aumentar el número de armas para evitar bugs
@@ -53,12 +53,10 @@ public class Gun : MonoBehaviour
             PlayerMovement.pmInstance.canMove=true;
             return;        
         }
-            if(Input.GetButtonUp("Fire2"))//Dejamos de apuntar
-            {
-                PlayerMovement.pmInstance.canMove=true;
-                canShoot=false;
-            }
-            return;
+        if(Input.GetButtonUp("Fire2"))//Dejamos de apuntar
+        {
+            PlayerMovement.pmInstance.canMove=true;
+            canShoot=false;
         }
         if(currentAmmo==0)//si nos acabamos la municion recargamos
         {
@@ -75,7 +73,7 @@ public class Gun : MonoBehaviour
          {
             //this.transform.SetParent(fpsCam.transform);
             PlayerMovement.pmInstance.canMove=false;
-            aim.setActive(true);
+            aim.enabled = true;
             canShoot=true;
             
          }
@@ -84,7 +82,7 @@ public class Gun : MonoBehaviour
             //this.transform.localPosition= pistolPosition.transform.position;
             //this.transform.SetParent(PlayerMovement.pmInstance.transform);
             PlayerMovement.pmInstance.canMove=true;
-            aim.setActive(false);
+            aim.enabled = false;
             canShoot=false;
             
         }
