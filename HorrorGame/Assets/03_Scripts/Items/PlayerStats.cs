@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerStats : MonoBehaviour
+{
+    [SerializeField]private int     _ammo;
+    [SerializeField]private int     _health;
+    [SerializeField]private bool    _hasKey;
+
+    public int Ammo
+    {
+        set { _ammo = value; }
+        get { return _ammo; }
+    }
+
+    public int Health { get => _health; set => _health = value; }
+
+    public bool HasKey { get => _hasKey; set => _hasKey = value; }
+}
