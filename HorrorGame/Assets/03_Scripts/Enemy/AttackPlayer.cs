@@ -18,7 +18,7 @@ public class AttackPlayer : State
 
     private void Update()
     {
-        Debug.Log("Distancia: " + navAgent.remainingDistance);
+        //Debug.Log("Distancia: " + navAgent.remainingDistance);
     }
 
     public override void Enter()
@@ -45,7 +45,6 @@ public class AttackPlayer : State
             if(navAgent.remainingDistance > attackingDistance && !navAgent.pathPending)
             {
                 m_stateMachine.ChangeState(m_character.chase);
-                Debug.LogError("aki");
             }
             Debug.Log("Attacking");
             yield return new WaitForEndOfFrame();

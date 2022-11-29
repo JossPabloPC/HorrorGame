@@ -13,6 +13,8 @@ public class EnemyManager : MonoBehaviour, IReceiveDamage
 
     public EnemyAI enemyAI;
 
+    public bool isBoss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,9 +36,15 @@ public class EnemyManager : MonoBehaviour, IReceiveDamage
     }
 
     //Receive damage
+    [ContextMenu("Damage")]
     public void Damage()
     {
         hP -= damageForce;
+        if (isBoss)
+        {
+            Debug.Log("cy");
+            stateMachine.ChangeState(enemyAI.damage);
+        }
     }
 }
 

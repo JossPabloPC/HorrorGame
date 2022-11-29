@@ -261,6 +261,7 @@ MonoBehaviour:
   damageForce: 0
   stateMachine: {fileID: 0}
   enemyAI: {fileID: 0}
+  isBoss: 0
 --- !u!114 &120007132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642420e9be56dbf4189dfddb813402b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastState: {fileID: 0}
 --- !u!136 &120007135
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -438,6 +440,8 @@ MonoBehaviour:
   chase: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
+  damage: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!114 &120007142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1999,6 +2003,7 @@ GameObject:
   - component: {fileID: 949212942}
   - component: {fileID: 949212941}
   - component: {fileID: 949212940}
+  - component: {fileID: 949212949}
   - component: {fileID: 949212939}
   m_Layer: 0
   m_Name: Wizard
@@ -2006,7 +2011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &949212938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2024,6 +2029,8 @@ MonoBehaviour:
   chase: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
+  damage: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!114 &949212939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2101,6 +2108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642420e9be56dbf4189dfddb813402b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastState: {fileID: 0}
 --- !u!114 &949212944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2117,6 +2125,8 @@ MonoBehaviour:
   wizardAnimator: {fileID: 0}
   stateMachine: {fileID: 0}
   enemyAI: {fileID: 0}
+  manager: {fileID: 0}
+  isHurting: 0
 --- !u!114 &949212945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2133,6 +2143,7 @@ MonoBehaviour:
   damageForce: 1
   stateMachine: {fileID: 0}
   enemyAI: {fileID: 0}
+  isBoss: 1
 --- !u!195 &949212946
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2185,6 +2196,21 @@ CapsuleCollider:
   m_Height: 6
   m_Direction: 1
   m_Center: {x: 0, y: 3.75, z: 0}
+--- !u!114 &949212949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949212937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259ddf976248cec42b4281dce21f815f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_character: {fileID: 0}
+  m_stateMachine: {fileID: 0}
+  isHurting: 0
 --- !u!1 &949212953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,7 +3651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9107271703198598339, guid: 3420c03119a1d0d4f88fedb6f736208e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3420c03119a1d0d4f88fedb6f736208e, type: 3}

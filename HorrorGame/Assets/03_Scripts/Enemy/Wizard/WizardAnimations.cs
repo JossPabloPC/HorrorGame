@@ -9,6 +9,9 @@ public class WizardAnimations : MonoBehaviour
     public Animator wizardAnimator;
     public StateMachine stateMachine;
     public EnemyAI enemyAI;
+    public EnemyManager manager;
+
+    public bool isHurting;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,7 @@ public class WizardAnimations : MonoBehaviour
         wizardAnimator = GetComponent<Animator>();
         stateMachine = GetComponent<StateMachine>();
         enemyAI = GetComponent<EnemyAI>();
+        manager = GetComponent<EnemyManager>();
     }
 
     // Update is called once per frame
@@ -25,11 +29,14 @@ public class WizardAnimations : MonoBehaviour
         currentState = stateMachine.GetCurrentState();
         if (currentState == enemyAI.chase) //EnemyAI.instance.chase)
         {
+            wizardAnimator.SetBool("Idle", false);
             wizardAnimator.SetBool("Chasing", true);
             wizardAnimator.SetBool("Attacking", false);
         }
         else if (currentState == enemyAI.attack)//EnemyAI.instance.attack)
         {
+            Debug.Log("aki ehe");
+            wizardAnimator.SetBool("Idle", false);
             wizardAnimator.SetBool("Chasing", false);
             wizardAnimator.SetBool("Attacking", true);
         }
@@ -37,11 +44,25 @@ public class WizardAnimations : MonoBehaviour
         {
             wizardAnimator.SetTrigger("Die");
         }
-        else
+        else if(manager.isBoss && currentState == enemyAI.damage && !isHurting)
         {
-            wizardAnimator.SetBool("Attacking", false);
+            Debug.Log("boi ejecutar animacion");
+            wizardAnimator.SetTrigger("Damage");
+            isHurting = true;
+            StartCoroutine(Resume());
+        }
+        else if(currentState == enemyAI.idle)
+        {
+            wizardAnimator.SetBool("Idle", true);
             wizardAnimator.SetBool("Chasing", false);
-
+            wizardAnimator.SetBool("Attacking", false);
         }
     }
+    IEnumerator Resume()
+    {
+        yield return new WaitForSeconds(2f);
+        stateMachine.ChangeState(enemyAI.stateMachine.lastState);
+        isHurting = false;
+    }
+
 }

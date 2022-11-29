@@ -29,6 +29,9 @@ public class EnemyAI : MonoBehaviour
     public ChasePlayer chase;
     public AttackPlayer attack;
     public EnemyDie die;
+    public DamageEnemy damage;
+
+    public EnemyManager manager;
 
     private void Start()
     {
@@ -37,6 +40,13 @@ public class EnemyAI : MonoBehaviour
         chase = GetComponent<ChasePlayer>();
         attack = GetComponent<AttackPlayer>();
         die = GetComponent<EnemyDie>();
+        manager = GetComponent<EnemyManager>();
+
+        if (manager.isBoss)
+        {
+            damage = GetComponent<DamageEnemy>();
+            damage.Init(this, stateMachine);
+        }
 
         idle.Init(this, stateMachine);
         chase.Init(this, stateMachine);
