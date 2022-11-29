@@ -40,4 +40,11 @@ public class PlayerManager : MonoBehaviour, IReceiveDamage
             Debug.Log("Game Over");
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 9 || other.gameObject.layer == 10 || other.gameObject.layer == 11)
+        {
+        }
+    }
 }
