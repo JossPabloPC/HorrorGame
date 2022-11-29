@@ -1,6 +1,7 @@
 using System.Collections;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -10,8 +11,7 @@ public class Gun : MonoBehaviour
     public ParticleSystem muzzFlash; 
     //public GameObject impactEffect;
     public Camera fpsCam;
-<<<<<<< Updated upstream
-=======
+    public bool canShoot;
 
 
     //Reloading
@@ -24,32 +24,23 @@ public class Gun : MonoBehaviour
     //public Image aim;//Aqui se pone la cruz de la mira
 
 
->>>>>>> Stashed changes
+
     //Disparo rapido
     public float fireRate=15f;
     private float nextTimeFire =0f;
     [SerializeField] private bool pistol;
 
-<<<<<<< Updated upstream
+
     // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetButton("Fire1")&&Time.time>=nextTimeFire&&!pistol)//Disparos continuos(ametralladora)
-=======
+   
 
     private void Start() {
         currentAmmo=maxAmmo;
-        pistolPosition.transform.position=this.transform.localPosition;
+        //pistolPosition.transform.position=this.transform.localPosition;
         reloadProgres.fillAmount=0;
         // aim.setActive(false);
-    }
-    /*
-    onEnable()//En caso de que queramos aumentar el número de armas para evitar bugs
-    {
-        isReloading=false;
-        animator.SetBool("Reload",false);
-    }
-    */
+    
+   
     // Update is called once per frame
     void Update()
     {
@@ -71,8 +62,7 @@ public class Gun : MonoBehaviour
        InputShoot();
     }
 
-    private void InputShoot(){
-
+     void InputShoot(){
          //Inputs
          if(Input.GetButton("Fire2"))//Apuntamos
          {
@@ -92,7 +82,7 @@ public class Gun : MonoBehaviour
             
         }
         if(Input.GetButton("Fire1")&&Time.time>=nextTimeFire&&!pistol&&canShoot)//Disparos continuos(ametralladora) si podemos apuntar
->>>>>>> Stashed changes
+
         {
             nextTimeFire=Time.time+1f/fireRate;//cadencia de disparo por segundo
             Shoot();
@@ -117,17 +107,8 @@ public class Gun : MonoBehaviour
             }
             //Instantiate(impactEffect,hit.point, Quaternion.LookRotation(hit.normal));//generamos las particulas
 
-<<<<<<< Updated upstream
-            //Aqui va lo de hacer daño al enemigo
-            /*
-            Enemy enemy =hit.transform.GetComponent<Enemy>();
-            if(enemy!=null)
-            {
-                enemy.takeDamage
-            }
-            */
         }
-=======
+
        
         }
     }
@@ -153,9 +134,8 @@ public class Gun : MonoBehaviour
             timeTrans+=Time.deltaTime;
         }
         
-        
           yield return new WaitUntil(()=>isReloading=false);
->>>>>>> Stashed changes
+
     }
 
 }

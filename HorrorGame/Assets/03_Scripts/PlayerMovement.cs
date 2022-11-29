@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
-{
+{   
+    public static PlayerMovement pmInstance;
     //Movimiento jugador
     [SerializeField]private float xInput, zInput;
     public CharacterController controller;
     public float speed=12f;
     public float jumpHeight=3;
+    private Vector3 move;
+    //Sprint 
+    private bool canSprint;
+    public bool canMove=true;
 
     //Gravedad
     [SerializeField] private Vector3 velocity;
     public float gravity=-9.81f;
-    
+    public Slider sprintStamina;
+    public float staminaDecrese, sprintSpeed, staminaIncrease,sprintRecharge;
     //Ground CHECK
     public Transform groundCheck;
     public float groundDistance=0.4f;
@@ -37,15 +44,17 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y=Mathf.Sqrt(jumpHeight*-2*gravity);//ecuacion que nos indica la velocidad necesaria para llegar una altura requerida
         }
-        xInput=Input.GetAxis("Horizontal");
-        zInput=Input.GetAxis("Vertical");
-        Vector3 move = transform.right*xInput+transform.forward*zInput;//Calculamos la direccion de nuestro movimiento
-        controller.Move(move*speed*Time.deltaTime);//Aplicamos movimiento
+        if(canMove)
+        {
+            xInput=Input.GetAxis("Horizontal");
+            zInput=Input.GetAxis("Vertical");
+            move = transform.right*xInput+transform.forward*zInput;//Calculamos la direccion de nuestro movimiento
+            controller.Move(move*speed*Time.deltaTime);//Aplicamos movimiento
+        }
+        
         velocity.y+=gravity*Time.deltaTime;//Calculamos la gravedad
         controller.Move(velocity*Time.deltaTime);//Aplicamos gravedad
-<<<<<<< Updated upstream
-    
-=======
+
 
         SprintInputs();
         
@@ -53,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void SprintInputs(){
-        if(Input.GetKey(KeyCode.LeftShift)&&canSprint)//Sprint
+        if(Input.GetKey(KeyCode.LeftShift)&&canSprint&&canMove)//Sprint
         {
             sprintStamina.value-=staminaDecrese*Time.deltaTime;//Bajamos la barra de stamina
             controller.Move(move*sprintSpeed*Time.deltaTime);//Vamos mas rapido
@@ -87,6 +96,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitUntil(()=>canSprint);
         
         
->>>>>>> Stashed changes
+
     }
 }
