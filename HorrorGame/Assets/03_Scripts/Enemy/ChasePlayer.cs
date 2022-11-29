@@ -22,7 +22,6 @@ public class ChasePlayer : State
     {
         if (foundPlayer)
         {
-            //StartCoroutine(RoutineChase());
             Chase();
             Debug.Log("Te sigo");
             //Debug.Log("Distancia: " + navAgent.remainingDistance);
@@ -32,38 +31,8 @@ public class ChasePlayer : State
                 //Debug.LogError("Distancia: " + navAgent.remainingDistance);
                 m_stateMachine.ChangeState(m_character.attack);
             }
-            //Chase();
-            //Debug.Log("Te sigo");
-            //Debug.Log("Distancia: " + navAgent.remainingDistance);
-            ////If the enemy is close enough of the player it'll start attacking
-            //if (navAgent.remainingDistance <= attackingDistance)
-            //{
-            //    Debug.LogError("Distancia: " + navAgent.remainingDistance);
-            //    m_stateMachine.ChangeState(m_character.attack);
-            //}
         }
-        //else if (!foundPlayer)
-        //{
-        //    Debug.Log("Idle");
-        //}
     }
-
-    //IEnumerator RoutineChase()
-    //{
-    //    while (!navAgent.pathPending)
-    //    {
-    //        yield return new WaitForSeconds(1);
-    //        Chase();
-    //        Debug.Log("Te sigo");
-    //        Debug.Log("Distancia: " + navAgent.remainingDistance);
-    //        //If the enemy is close enough of the player it'll start attacking
-    //        if (navAgent.remainingDistance <= attackingDistance && !navAgent.pathPending)
-    //        {
-    //            Debug.LogError("Distancia: " + navAgent.remainingDistance);
-    //            m_stateMachine.ChangeState(m_character.attack);
-    //        }
-    //    }
-    //}
 
     public override void Enter()
     {
@@ -75,8 +44,8 @@ public class ChasePlayer : State
 
     public override void Exit()
     {
-        //navAgent;
         foundPlayer = false;
+        navAgent.SetDestination(this.transform.position);
         base.Exit();
     }
 

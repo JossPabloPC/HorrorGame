@@ -10,20 +10,6 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public static EnemyAI instance;
-
-    //private void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //    }
-    //    else
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
     public StateMachine stateMachine;
     public EnemyIdle idle;
     public ChasePlayer chase;

@@ -8,20 +8,6 @@ public class StateMachine : MonoBehaviour
 
     public State lastState;
 
-    public static StateMachine instance;
-
-    //private void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //    }
-    //    else
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
     public void Init(State firstState)
     {
         m_currentState = firstState;

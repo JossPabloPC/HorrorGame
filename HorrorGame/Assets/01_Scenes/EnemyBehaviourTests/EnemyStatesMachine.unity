@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_character: {fileID: 0}
   m_stateMachine: {fileID: 0}
-  navAgent: {fileID: 120007139}
+  navAgent: {fileID: 0}
   pointToFollow: {fileID: 1178864003}
   attackingDistance: 0
   attackSpan: 2
@@ -475,6 +475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_character: {fileID: 0}
   m_stateMachine: {fileID: 0}
+  dissableAfter: 0
 --- !u!114 &120007144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2045,6 +2046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_character: {fileID: 0}
   m_stateMachine: {fileID: 0}
+  dissableAfter: 6
 --- !u!114 &949212940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,6 +2129,7 @@ MonoBehaviour:
   enemyAI: {fileID: 0}
   manager: {fileID: 0}
   isHurting: 0
+  time2Resume: 0
 --- !u!114 &949212945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,7 +2213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_character: {fileID: 0}
   m_stateMachine: {fileID: 0}
-  isHurting: 0
 --- !u!1 &949212953
 GameObject:
   m_ObjectHideFlags: 0

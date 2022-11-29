@@ -11,7 +11,11 @@ public class WizardAnimations : MonoBehaviour
     public EnemyAI enemyAI;
     public EnemyManager manager;
 
-    public bool isHurting;
+    [SerializeField]
+    private bool isHurting;
+
+    [SerializeField]
+    private float time2Resume;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +65,7 @@ public class WizardAnimations : MonoBehaviour
     IEnumerator Resume()
     {
         yield return new WaitForSeconds(2f);
-        stateMachine.ChangeState(enemyAI.stateMachine.lastState);
+        stateMachine.ChangeState(stateMachine.lastState);
         isHurting = false;
     }
 
