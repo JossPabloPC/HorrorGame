@@ -109,7 +109,10 @@ public class Gun : MonoBehaviour
             if(hit.rigidbody)
             {
                 //hit.rigidbody.AddForce(hit.normal*impactForce);//LE añadimos una fuerza al objeto impactado
-                hit.collider.GetComponent<IReceiveDamage>().Damage();
+                if(hit.collider.GetComponent<IReceiveDamage>() != null)
+                {
+                    hit.collider.GetComponent<IReceiveDamage>().Damage();
+                }
             }
             //Instantiate(impactEffect,hit.point, Quaternion.LookRotation(hit.normal));//generamos las particulas
 
@@ -130,8 +133,8 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(2);
         while(timeTrans<reloadTime)
         {
-            reloadProgres.fillAmount=Mathf.Lerp(0f,1f,timeTrans/reloadTime);
-            Debug.Log(reloadProgres.fillAmount);
+            //reloadProgres.fillAmount=Mathf.Lerp(0f,1f,timeTrans/reloadTime);
+            //Debug.Log(reloadProgres.fillAmount);
             timeTrans+=Time.deltaTime;
             
             // if(reloadProgres.fillAmount>=1f){
@@ -150,7 +153,7 @@ public class Gun : MonoBehaviour
         animatorWeapon.SetBool("isReloading",false);//desactivamos la animación de recarga
         // animatorWeapon.SetBool("Idle", true);
         isReloading=false;//No se esta recargando
-        reloadProgres.fillAmount=0;
+        //reloadProgres.fillAmount=0;
         
 
     }
