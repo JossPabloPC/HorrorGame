@@ -6,6 +6,8 @@ public class StateMachine : MonoBehaviour
 {
     protected State m_currentState;
 
+    public State lastState;
+
     public void Init(State firstState)
     {
         m_currentState = firstState;
@@ -16,6 +18,7 @@ public class StateMachine : MonoBehaviour
     public void ChangeState(State newState)
     {
         m_currentState.Exit();
+        lastState = m_currentState;
         m_currentState.enabled = false;
         m_currentState = newState;
         m_currentState.enabled = true;

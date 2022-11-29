@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class State : MonoBehaviour
 {
-    protected EnemyAI m_character;
-    protected StateMachine m_stateMachine;
+    public EnemyAI m_character;
+    public StateMachine m_stateMachine;
 
     public void Init(EnemyAI character, StateMachine stateMachine)
     {
@@ -14,11 +14,13 @@ public class State : MonoBehaviour
         this.enabled = false;
     }
 
+    //What to do when enters the state
     public virtual void Enter()
     {
 
     }
 
+    //What to do when exiting the state
     public virtual void Exit()
     {
 
