@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public Text btn_txt;
     public void Jugar()
     {
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     public void Salir()
