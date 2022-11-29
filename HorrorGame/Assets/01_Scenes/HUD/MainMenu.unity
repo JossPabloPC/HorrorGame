@@ -821,7 +821,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Nombre juego
+  m_Text: Necromancer Dungeon
 --- !u!222 &632552719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1591,7 +1591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d20d720c046f5004f823ac996fb696b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1850,7 +1850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 312a093a54d46204885538ad83294b44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f54e8bb96d7486408354bb16026003e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2681,7 +2681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9c13649a95c595488bf2eab0b3c0f75, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f20e53f869049e747ba70812717e4afa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
