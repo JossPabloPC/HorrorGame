@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Ammo
   m_EditorClassIdentifier: 
   name: Ammo
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 781b77a799e6529498f0f6dc79a36817, type: 3}
   isKey: 0

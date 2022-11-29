@@ -5087,7 +5087,7 @@ MonoBehaviour:
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   isGrounded: 0
 --- !u!114 &5898408391663465295
 MonoBehaviour:

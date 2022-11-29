@@ -29,10 +29,12 @@ public class InventoryUI : MonoBehaviour
             if (inventoryUI.GetComponent<Canvas>().enabled)
             {
                 inventoryUI.GetComponent<Canvas>().enabled = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 inventoryUI.GetComponent<Canvas>().enabled = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }

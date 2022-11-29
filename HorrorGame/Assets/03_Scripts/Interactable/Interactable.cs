@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public float radius = 3f;
+    public float radius;
     public Transform player;
     public bool hasInteracted = false;
 
