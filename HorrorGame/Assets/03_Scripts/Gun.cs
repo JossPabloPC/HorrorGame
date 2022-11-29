@@ -108,7 +108,8 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.transform.name);
             if(hit.rigidbody)
             {
-                hit.rigidbody.AddForce(hit.normal*impactForce);//LE añadimos una fuerza al objeto impactado
+                //hit.rigidbody.AddForce(hit.normal*impactForce);//LE añadimos una fuerza al objeto impactado
+                hit.collider.GetComponent<IReceiveDamage>().Damage();
             }
             //Instantiate(impactEffect,hit.point, Quaternion.LookRotation(hit.normal));//generamos las particulas
 
