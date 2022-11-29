@@ -5329,6 +5329,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor10x30
       objectReference: {fileID: 0}
+    - target: {fileID: 3996515971007691323, guid: 4a9ebd2ebb5ecca4d993d898637c29ec, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.083333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996515971007691323, guid: 4a9ebd2ebb5ecca4d993d898637c29ec, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -334000983
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a9ebd2ebb5ecca4d993d898637c29ec, type: 3}
 --- !u!4 &3986537015638815015 stripped
@@ -8620,6 +8628,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3121777948718726694}
     m_Modifications:
+    - target: {fileID: 2299485870696350052, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.083333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299485870696350052, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -334000983
+      objectReference: {fileID: 0}
     - target: {fileID: 2332188041895503051, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
       propertyPath: m_Name
       value: Floor10x10

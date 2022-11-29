@@ -1162,6 +1162,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6001927499222443124}
     m_Modifications:
+    - target: {fileID: 2299485870696350052, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.083333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299485870696350052, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -334000983
+      objectReference: {fileID: 0}
     - target: {fileID: 2332188041895503051, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
       propertyPath: m_Name
       value: Floor10x10 (1)
@@ -1301,6 +1309,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6001927499222443124}
     m_Modifications:
+    - target: {fileID: 2299485870696350052, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.083333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299485870696350052, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -334000983
+      objectReference: {fileID: 0}
     - target: {fileID: 2332188041895503051, guid: d19a3dff56927514d967341a688fe7ef, type: 3}
       propertyPath: m_Name
       value: Floor10x10

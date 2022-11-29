@@ -41,8 +41,22 @@ MonoBehaviour:
       rgba: 0
     Room: {fileID: 4460549712841117889, guid: 3796c5633eb82484e9a62397a9a32ad5, type: 3}
     Sockets: 01000000010000000100000001000000
-  - tag: Key Room
+  - tag: Room 03
     id: 4
+    ColorFragment:
+      serializedVersion: 2
+      rgba: 0
+    Room: {fileID: 3121777948718726695, guid: 6df5a4e1255b961439a575c3329e04dc, type: 3}
+    Sockets: 01000000010000000100000001000000
+  - tag: Room 04
+    id: 5
+    ColorFragment:
+      serializedVersion: 2
+      rgba: 0
+    Room: {fileID: 6001927499222443127, guid: 78fe457a86391d741a9962eb8c56b146, type: 3}
+    Sockets: 01000000010000000100000001000000
+  - tag: Key Room
+    id: 6
     ColorFragment:
       serializedVersion: 2
       rgba: 0

@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bab096406006c743b877d03907f52dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_columns: 5
+  m_columns: 7
   m_rows: 1
   m_sockets_data: {fileID: 11400000, guid: 1c353849a2e64cc499d26c7c2e693737, type: 2}
 --- !u!1 &718913571
