@@ -20,20 +20,27 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 velocity;
     public float gravity=-9.81f;
     public Slider sprintStamina;
-    public float staminaDecrese, sprintSpeed, staminaIncrease,sprintRecharge;
+    public float staminaDecrese;
+    public float sprintSpeed;
+    public float staminaIncrease;
+    public float sprintRecharge;
     //Ground CHECK
     public Transform groundCheck;
     public float groundDistance=0.4f;
     public LayerMask groundMask;
     [SerializeField] private bool isGrounded;
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    private void Awake() {
+        if(pmInstance!=null && pmInstance!= this)
+        {
+            Destroy(this);
+        }else{
+            pmInstance=this;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         isGrounded=Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);//Comprobamos si tocamos el suelo
 
@@ -44,11 +51,11 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y=Mathf.Sqrt(jumpHeight*-2*gravity);//ecuacion que nos indica la velocidad necesaria para llegar una altura requerida
         }
+        xInput=Input.GetAxis("Horizontal");//valores horizontales
+        zInput=Input.GetAxis("Vertical");//valores verticales
+        move = transform.right*xInput+transform.forward*zInput;//Calculamos la direccion de nuestro movimiento
         if(canMove)
         {
-            xInput=Input.GetAxis("Horizontal");
-            zInput=Input.GetAxis("Vertical");
-            move = transform.right*xInput+transform.forward*zInput;//Calculamos la direccion de nuestro movimiento
             controller.Move(move*speed*Time.deltaTime);//Aplicamos movimiento
         }
         
@@ -56,17 +63,15 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity*Time.deltaTime);//Aplicamos gravedad
 
 
-        SprintInputs();
+        //SprintInputs();
         
     }
-
-
+    /*
     private void SprintInputs(){
-        if(Input.GetKey(KeyCode.LeftShift)&&canSprint&&canMove)//Sprint
+        if(Input.GetKey(KeyCode.LeftShift)&&canSprint)//Sprint
         {
             sprintStamina.value-=staminaDecrese*Time.deltaTime;//Bajamos la barra de stamina
             controller.Move(move*sprintSpeed*Time.deltaTime);//Vamos mas rapido
-            
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))//si dejamos de correr 
         {
@@ -74,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if(sprintStamina.value<0.1f)//si agota su barra por completo
         {
-            
             StartCoroutine(StaminaRecharge(sprintStamina.value));//tenemos que esperar hasta que se rellene por completo
         }
     }
@@ -82,20 +86,23 @@ public class PlayerMovement : MonoBehaviour
     {
         float timeTrans=0;
         canSprint=false;
+        yield return new WaitForSeconds(sprintRecharge);
         while(timeTrans<sprintRecharge) 
         {
             sprintStamina.value=Mathf.Lerp(0,1,timeTrans/sprintRecharge);
             
-            if(sprintStamina.value>=1)//hasta que no se halla rellenado la barra no podemos volver a correr
-            {
-                canSprint=true;
-            }
+            //if(sprintStamina.value>=1)//hasta que no se halla rellenado la barra no podemos volver a correr
+            
+            //{
+                
+           // }
             timeTrans+=Time.deltaTime;
         }
+        canSprint=true;
         
-        yield return new WaitUntil(()=>canSprint);
         
         
 
     }
+    */
 }

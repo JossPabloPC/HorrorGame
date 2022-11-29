@@ -1,21 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-    public float damage=10f;
+     public float damage=10f;
     public float range=100f;
     public float impactForce=10f;
     public ParticleSystem muzzFlash; 
     //public GameObject impactEffect;
     public Camera fpsCam;
-    public bool canShoot;
+    public bool canShoot=false;
 
 
     //Reloading
     public int maxAmmo=6;
+    [SerializeField]
     private int currentAmmo;
     public float reloadTime;
     [SerializeField]private bool isReloading=false;
@@ -39,10 +40,10 @@ public class Gun : MonoBehaviour
         //pistolPosition.transform.position=this.transform.localPosition;
         reloadProgres.fillAmount=0;
         // aim.setActive(false);
-    
+    }
    
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(isReloading){//si estamos recargando no queremos hacer todo lo demas
             PlayerMovement.pmInstance.canMove=true;
@@ -53,12 +54,14 @@ public class Gun : MonoBehaviour
             PlayerMovement.pmInstance.canMove=true;
             canShoot=false;
         }    
-        
+
         if(currentAmmo==0)//si nos acabamos la municion recargamos
         {
             StartCoroutine(Reload());
             return;
         }
+        
+        
        InputShoot();
     }
 
@@ -96,8 +99,10 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+
         muzzFlash.Play();
         RaycastHit hit;
+        currentAmmo--;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,range))
         {
             Debug.Log(hit.transform.name);
@@ -110,32 +115,43 @@ public class Gun : MonoBehaviour
         }
 
        
-        }
     }
+    float timeTrans=0f;
 
-    
-    
     public IEnumerator Reload ()
     {
-        float timeTrans=0f;
         isReloading=true;//Se esta recargando
         Debug.Log("Reloading...");
-        animatorWeapon.SetBool("Reload",true);
+        animatorWeapon.SetBool("isReloading",true);
+        // animatorWeapon.SetTrigger("Reload");
+        // animatorWeapon.SetBool("Idle", false);
+
+        yield return new WaitForSeconds(2);
         while(timeTrans<reloadTime)
         {
-            reloadProgres.fillAmount=Mathf.Lerp(0,1,timeTrans/reloadTime);
-            
-            if(reloadProgres.fillAmount>=1){
-                currentAmmo=maxAmmo;//volvemos a rellanar la municion al maximo
-                animatorWeapon.SetBool("Reload",false);//desactivamos la animación de recarga
-                isReloading=false;//No se esta recargando
-                reloadProgres.fillAmount=0;
-            }
+            reloadProgres.fillAmount=Mathf.Lerp(0f,1f,timeTrans/reloadTime);
+            Debug.Log(reloadProgres.fillAmount);
             timeTrans+=Time.deltaTime;
+            
+            // if(reloadProgres.fillAmount>=1f){
+            //     Debug.Log("aki");
+            //     currentAmmo=6;//volvemos a rellanar la municion al maximo
+            //     // animatorWeapon.SetBool("isReloading",false);//desactivamos la animación de recarga
+            //     animatorWeapon.SetBool("Idle", true);
+            //     isReloading=false;//No se esta recargando
+            //     reloadProgres.fillAmount=0;
+            //     break;
+            // }
         }
+        Debug.Log("voy a salir");
+        // Debug.Log("aki");
+        currentAmmo=6;//volvemos a rellanar la municion al maximo
+        animatorWeapon.SetBool("isReloading",false);//desactivamos la animación de recarga
+        // animatorWeapon.SetBool("Idle", true);
+        isReloading=false;//No se esta recargando
+        reloadProgres.fillAmount=0;
         
-          yield return new WaitUntil(()=>isReloading=false);
 
     }
-
 }
+   
