@@ -3141,7 +3141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hP: 3
-  damageForce: 0
+  damageForce: 1
   stateMachine: {fileID: 0}
   enemyAI: {fileID: 0}
   isBoss: 0

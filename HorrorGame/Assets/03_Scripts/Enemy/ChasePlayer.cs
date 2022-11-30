@@ -51,7 +51,8 @@ public class ChasePlayer : State
 
     public void Chase()
     {
-        navAgent.SetDestination(pointToFollow.position);
+        navAgent.SetDestination(PlayerMovement.pmInstance.transform.position);
+        //navAgent.SetDestination(pointToFollow.position);
     }
 
     private void OnTriggerExit(Collider other)

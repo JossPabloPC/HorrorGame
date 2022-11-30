@@ -41,13 +41,14 @@ public class AttackPlayer : State
         while (canAttack)
         {
             //yield return new WaitForSeconds(attackSpan);
-            navAgent.SetDestination(pointToFollow.position);
+            navAgent.SetDestination(PlayerMovement.pmInstance.transform.position);
             if(navAgent.remainingDistance > attackingDistance && !navAgent.pathPending)
             {
                 m_stateMachine.ChangeState(m_character.chase);
             }
+            PlayerManager.instance.Damage();
             Debug.Log("Attacking");
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(2);
         }
     }
 }

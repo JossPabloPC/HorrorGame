@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField]private int _ammo;
-    [SerializeField]private int _health;
+    [SerializeField]private int     _ammo;
+    [SerializeField]private int     _health;
+    [SerializeField]private bool    _hasKey;
 
     public int Ammo
     {
@@ -14,4 +15,6 @@ public class PlayerStats : MonoBehaviour
     }
 
     public int Health { get => _health; set => _health = value; }
+
+    public bool HasKey { get => _hasKey; set => _hasKey = value; }
 }

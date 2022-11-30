@@ -42,7 +42,6 @@ public class EnemyManager : MonoBehaviour, IReceiveDamage
         hP -= damageForce;
         if (isBoss)
         {
-            Debug.Log("cy");
             stateMachine.ChangeState(enemyAI.damage);
         }
     }
