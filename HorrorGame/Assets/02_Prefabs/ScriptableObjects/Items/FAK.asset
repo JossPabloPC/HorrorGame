@@ -15,3 +15,5 @@ MonoBehaviour:
   name: First Aid Kit
   icon: {fileID: 21300000, guid: 8088b3b078bc2624eb53fb11c302b1e9, type: 3}
   isKey: 0
+  isFAK: 1
+  isBullet: 0

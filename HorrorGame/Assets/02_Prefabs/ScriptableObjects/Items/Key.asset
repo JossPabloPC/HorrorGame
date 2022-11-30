@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Key
   icon: {fileID: 21300000, guid: d499b0ad81053eb43be5fcbe2d7fed97, type: 3}
-  isKey: 0
+  isKey: 1
+  isFAK: 0
+  isBullet: 0
