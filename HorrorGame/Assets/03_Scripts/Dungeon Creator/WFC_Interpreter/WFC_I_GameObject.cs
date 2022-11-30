@@ -18,12 +18,14 @@ public class WFC_I_GameObject : WFC_Interpreter
     /// <summary>
     /// Instantiates game objects with the given distance
     /// </summary>
-    public void DisplayNextRoom()
+    public Room DisplayNextRoom()
     {
+        Room room = null;
         int roomToInstance = m_roomsList.Count;
         if (roomToInstance == 0)
         {
             GameObject tmpRoom          =  RoomPooler.poolOfRooms[m_grid[0,0].FinalSolution].Get();
+            room = tmpRoom.GetComponent<Room>();
             tmpRoom.transform.position  =  Vector3.zero;
             m_roomsList.Add(tmpRoom.GetComponent<Room>());
         }
@@ -33,7 +35,9 @@ public class WFC_I_GameObject : WFC_Interpreter
             Vector3 origin              = m_roomsList[roomToInstance - 1].m_exit.position;
             GameObject tmpRoom          = RoomPooler.poolOfRooms[m_grid[0,roomToInstance].FinalSolution].Get();
             tmpRoom.transform.position  = origin - offset;
+            room = tmpRoom.GetComponent<Room>();
             m_roomsList.Add(tmpRoom.GetComponent<Room>());
         }
+        return room;
     }
 }

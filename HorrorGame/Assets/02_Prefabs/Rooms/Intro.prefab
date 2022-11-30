@@ -392,6 +392,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_entrance: {fileID: 2515062482196586180}
   m_exit: {fileID: 2430684614983831407}
+  roomNumber: 0
+  isBeforeBoss: 0
   roomsSurfaces:
   - {fileID: 4562477875279928320}
 --- !u!1 &5619920561384760949
@@ -3792,6 +3794,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4183591071370853914, guid: e995967b3dfba6448aad61190efbc2cf, type: 3}
+      propertyPath: parentRoom
+      value: 
+      objectReference: {fileID: 7138590705662223948}
     - target: {fileID: 4183591071370853914, guid: e995967b3dfba6448aad61190efbc2cf, type: 3}
       propertyPath: onDoorOpen.m_PersistentCalls.m_Calls.Array.size
       value: 1

@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoMainMenu()
     {
-        //SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(0);
     }
     public void ExitGame() {
         Debug.Log("Dejando Juego...");

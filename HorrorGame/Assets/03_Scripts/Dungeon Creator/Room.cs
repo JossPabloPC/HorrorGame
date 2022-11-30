@@ -8,6 +8,9 @@ public class Room : MonoBehaviour
     public Transform m_entrance;
     public Transform m_exit;
 
+    public int roomNumber;
+    public bool isBeforeBoss;
+
     [SerializeField] private NavMeshSurface [] roomsSurfaces;
 
     private void Start()

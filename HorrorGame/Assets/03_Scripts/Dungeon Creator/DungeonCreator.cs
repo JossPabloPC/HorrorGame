@@ -9,6 +9,7 @@ public class DungeonCreator : MonoBehaviour
     public event Notify rebuildNavMesh;
 
     [SerializeField] private int                m_columns   = 10;
+    public int                roomNumbers;
     [SerializeField] private int                m_rows      = 1;
     [SerializeField] private PrimitiveList_Data m_sockets_data;
 
@@ -26,6 +27,7 @@ public class DungeonCreator : MonoBehaviour
 
     void Start()
     {
+        roomNumbers = 1;
         wave_function_collapse = new Wave_Function_Collapse(m_columns, m_rows);
         wave_function_collapse.Load_Primitives(m_sockets_data);
         wave_function_collapse.Create_Grid();
@@ -51,7 +53,14 @@ public class DungeonCreator : MonoBehaviour
 
     public void DisplayNextRoom()
     {
-        m_RoomCreator.DisplayNextRoom();
+        roomNumbers ++;
+        Room room = m_RoomCreator.DisplayNextRoom();
+        if(roomNumbers == m_columns - 1 ){
+            room.isBeforeBoss = true;
+        }
+        else{
+            room.isBeforeBoss = false;
+        }
         rebuildNavMesh.Invoke();
     }
 }

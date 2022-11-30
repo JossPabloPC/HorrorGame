@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(BoxCollider))]
 public class RoomDoor : MonoBehaviour
 {
+    public Room parentRoom;
     public UnityEvent   onDoorOpen;
     private BoxCollider m_collider;
     private void Start()
@@ -18,9 +19,11 @@ public class RoomDoor : MonoBehaviour
         RoomTrigger tmp = other.GetComponent<RoomTrigger>();
         if (tmp != null)
         {
-            DungeonCreator.Instace.DisplayNextRoom();
-            m_collider.enabled = false;
-            onDoorOpen.Invoke();
+            if(!parentRoom.isBeforeBoss){
+                DungeonCreator.Instace.DisplayNextRoom();
+                m_collider.enabled = false;
+                onDoorOpen.Invoke();
+            }
         }
     }
 }
