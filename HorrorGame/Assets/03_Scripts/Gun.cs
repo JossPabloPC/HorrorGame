@@ -29,7 +29,7 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public bool canShoot=false;
 
-
+    [Space]
     //Reloading
     public int maxAmmo=6;
     [SerializeField]
@@ -40,8 +40,7 @@ public class Gun : MonoBehaviour
     public Image reloadProgres;
     //public Image aim;//Aqui se pone la cruz de la mira
 
-
-
+    [Space]
     //Disparo rapido
     public float fireRate=15f;
     private float nextTimeFire =0f;
@@ -49,12 +48,15 @@ public class Gun : MonoBehaviour
 
     float timeTrans = 0f;
 
+    [Space]
+    public Text ammoAmountTxt;
 
     // Update is called once per frame
 
 
     private void Start() {
         currentAmmo=maxAmmo;
+        ammoAmountTxt.text = currentAmmo.ToString();
         //pistolPosition.transform.position=this.transform.localPosition;
         reloadProgres.fillAmount=0;
         // aim.setActive(false);
@@ -75,7 +77,7 @@ public class Gun : MonoBehaviour
 
         if(currentAmmo==0)//si nos acabamos la municion recargamos
         {
-            StartCoroutine(Reload());
+            //StartCoroutine(Reload());
             return;
         }
         
@@ -121,6 +123,7 @@ public class Gun : MonoBehaviour
         muzzFlash.Play();
         RaycastHit hit;
         currentAmmo--;
+        ammoAmountTxt.text = currentAmmo.ToString();
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit,range))
         {
             Debug.Log(hit.transform.name);
@@ -142,6 +145,8 @@ public class Gun : MonoBehaviour
     public void ReloadAmmo()
     {
         currentAmmo += 3;
+        ammoAmountTxt.text = currentAmmo.ToString();
+        StartCoroutine(Reload());
     }
 
     public IEnumerator Reload ()

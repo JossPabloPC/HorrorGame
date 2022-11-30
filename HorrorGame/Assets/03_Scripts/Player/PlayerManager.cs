@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour, IReceiveDamage, IHeal
 {
     public static PlayerManager instance;
     public int health;
     public bool hasKey;
+
+    public Text hpTxt;
 
     public void Awake()
     {
@@ -25,11 +29,13 @@ public class PlayerManager : MonoBehaviour, IReceiveDamage, IHeal
     private void Start()
     {
         hasKey = false;
+        hpTxt.text = health.ToString();
     }
 
     public void Damage()
     {
         health -= 10;
+        hpTxt.text = health.ToString();
     }
 
     public void PickedKey()
@@ -43,13 +49,7 @@ public class PlayerManager : MonoBehaviour, IReceiveDamage, IHeal
         if(health <= 0)
         {
             Debug.Log("Game Over");
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 9 || other.gameObject.layer == 10 || other.gameObject.layer == 11)
-        {
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -62,6 +62,7 @@ public class PlayerManager : MonoBehaviour, IReceiveDamage, IHeal
         else
         {
             health += 10;
+            hpTxt.text = health.ToString();
         }
     }
 }
