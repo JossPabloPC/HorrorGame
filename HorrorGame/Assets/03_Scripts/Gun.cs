@@ -5,7 +5,23 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-     public float damage=10f;
+    public static Gun instance;
+
+    public void Awake()
+    {
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
+    public float damage=10f;
     public float range=100f;
     public float impactForce=10f;
     public ParticleSystem muzzFlash; 
@@ -31,9 +47,11 @@ public class Gun : MonoBehaviour
     private float nextTimeFire =0f;
     [SerializeField] private bool pistol;
 
+    float timeTrans = 0f;
+
 
     // Update is called once per frame
-   
+
 
     private void Start() {
         currentAmmo=maxAmmo;
@@ -120,7 +138,11 @@ public class Gun : MonoBehaviour
 
        
     }
-    float timeTrans=0f;
+
+    public void ReloadAmmo()
+    {
+        currentAmmo += 3;
+    }
 
     public IEnumerator Reload ()
     {
@@ -149,7 +171,7 @@ public class Gun : MonoBehaviour
         }
         Debug.Log("voy a salir");
         // Debug.Log("aki");
-        currentAmmo=6;//volvemos a rellanar la municion al maximo
+        //currentAmmo=6;//volvemos a rellanar la municion al maximo
         animatorWeapon.SetBool("isReloading",false);//desactivamos la animación de recarga
         // animatorWeapon.SetBool("Idle", true);
         isReloading=false;//No se esta recargando

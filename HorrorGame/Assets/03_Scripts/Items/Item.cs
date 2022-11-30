@@ -7,10 +7,19 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     //public int amount = 0;
     public bool isKey;
+    public bool isFAK;
+    public bool isBullet;
 
     public virtual void Use()
     {
         Debug.Log("Using " + name);
+        if (isFAK)
+        {
+            PlayerManager.instance.TakeFAK();
+        }
+        else if (isBullet)
+        {
+            Gun.instance.ReloadAmmo();
+        }
     }
-
 }

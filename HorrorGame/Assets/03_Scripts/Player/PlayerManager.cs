@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour, IReceiveDamage
+public class PlayerManager : MonoBehaviour, IReceiveDamage, IHeal
 {
     public static PlayerManager instance;
     public int health;
+    public bool hasKey;
 
     public void Awake()
     {
@@ -21,15 +22,19 @@ public class PlayerManager : MonoBehaviour, IReceiveDamage
         }
     }
 
+    private void Start()
+    {
+        hasKey = false;
+    }
+
     public void Damage()
     {
         health -= 10;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void PickedKey()
     {
-        
+        hasKey = true;
     }
 
     // Update is called once per frame
@@ -47,4 +52,21 @@ public class PlayerManager : MonoBehaviour, IReceiveDamage
         {
         }
     }
+
+    public void TakeFAK()
+    {
+        if(health >= 100)
+        {
+            Debug.Log("Sacoles");
+        }
+        else
+        {
+            health += 10;
+        }
+    }
+}
+
+public interface IHeal
+{
+    void TakeFAK();
 }
