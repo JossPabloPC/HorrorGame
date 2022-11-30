@@ -28,12 +28,12 @@ public class InventoryUI : MonoBehaviour
         {
             if (inventoryUI.GetComponent<Canvas>().enabled)
             {
-                Cursor.visible = false;
+                //Cursor.visible = false;
                 inventoryUI.GetComponent<Canvas>().enabled = false;
             }
             else
             {
-                Cursor.visible = true;
+                //Cursor.visible = true;
                 inventoryUI.GetComponent<Canvas>().enabled = true;
             }
         }
